@@ -4,16 +4,22 @@ import matplotlib.pyplot as plt
 import PyTesseract 
 
 # Load the custom-trained model
-model = YOLO('Users/minhthanh/Code/AIProject/yolov8s.pt')
+# model = YOLO('Users/minhthanh/Code/AIProject/best.pt')
 
-image_path="/Users/minhthanh/Code/AIProject/image.png"
+model = YOLO('best.pt')
 
-text_path="./text_to_ocr.png"
+# image_path="/Users/minhthanh/Code/AIProject/image.png"
 
-plate_number="./image copy.png"
+# text_path="./text_to_ocr.png"
+
+# plate_number="./image copy.png"
+
+
+web_image="https://assets.materialup.com/uploads/3599159f-9e56-4a90-8f51-118a74da25e3/preview.jpg"
+
 
 # Display the model architecture (optional)
-results = model(plate_number)
+results = model(web_image)
 
 # results.print()  # Print the results
 # results.save(save_dir='output')  # Save the results in the specified directory
@@ -46,9 +52,9 @@ for result in results:
         # Split Detected Object
         detected_object = img[y1:y2, x1:x2]
 
-        cv2.imwrite("./result.png", detected_object)
+        cv2.imwrite("result.png", detected_object)
 
-        PyTesseract.image_to_text("./result.png")
+        PyTesseract.image_to_text("result.png")
 
         # Display label
         label = f'Class: {cls}, Confidence: {conf:.2f}'

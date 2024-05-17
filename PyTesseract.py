@@ -4,7 +4,10 @@ import pytesseract
 import matplotlib.pyplot as plt
 
 # Mention the installed location of Tesseract-OCR in your system
-pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'
+# pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'
+
+pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\Nguyen Minh Thanh\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pytesseract'
+
 
 
 def image_to_text(img):
