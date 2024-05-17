@@ -1,0 +1,8 @@
+train: /content/drive/MyDrive/data/train
+val: /content/drive/MyDrive/data/train
+nc: 1
+names: ['fire']
+train: /content/drive/MyDrive/data/train
+val: /content/drive/MyDrive/data/train
+nc: 1
+names: ['fire']
