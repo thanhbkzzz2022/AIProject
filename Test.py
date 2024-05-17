@@ -1,14 +1,19 @@
 from ultralytics import YOLO
 import cv2
 import matplotlib.pyplot as plt
+import PyTesseract 
 
 # Load the custom-trained model
-model = YOLO('D:\\AI Project\\yolov8s.pt')
+model = YOLO('Users/minhthanh/Code/AIProject/yolov8s.pt')
 
-image_path="image.png"
+image_path="/Users/minhthanh/Code/AIProject/image.png"
+
+text_path="./text_to_ocr.png"
+
+plate_number="./image copy.png"
 
 # Display the model architecture (optional)
-results = model(image_path)
+results = model(plate_number)
 
 # results.print()  # Print the results
 # results.save(save_dir='output')  # Save the results in the specified directory
@@ -21,6 +26,10 @@ for result in results:
 
 for result in results:
     img = result.orig_img  # Get the original image
+    
+    total_object = len(results)
+
+    print("There is no object detected! - Total Object Detected: " + str(total_object))
 
     for box in result.boxes:
         # Convert tensors to appropriate types
@@ -37,6 +46,10 @@ for result in results:
         # Split Detected Object
         detected_object = img[y1:y2, x1:x2]
 
+        cv2.imwrite("./result.png", detected_object)
+
+        PyTesseract.image_to_text("./result.png")
+
         # Display label
         label = f'Class: {cls}, Confidence: {conf:.2f}'
         cv2.putText(img, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
@@ -52,5 +65,7 @@ for result in results:
     plt.show()
 
     # Save the image if needed
-    output_path = 'output/detected_image.jpg'
+    output_path = 'detected_image.jpg'
     cv2.imwrite(output_path, img)
+
+    print("End Execution")
