@@ -1,0 +1,20 @@
+[
+    {
+        "element": "name",
+        "coordinates": "[[     494.55      332.73      892.32      409.35]]",
+        "confidence": "0.5535594820976257",
+        "detected_text": "\n"
+    },
+    {
+        "element": "button",
+        "coordinates": "[[     490.51      464.72      893.08      515.73]]",
+        "confidence": "0.37873613834381104",
+        "detected_text": "\n"
+    },
+    {
+        "element": "button",
+        "coordinates": "[[     491.34      563.94      891.47      620.47]]",
+        "confidence": "0.277262419462204",
+        "detected_text": "ICON Employee Login\n\n"
+    }
+]
